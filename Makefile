@@ -4,7 +4,7 @@ DIALYZER := dialyzer
 DIALYZER_APPS := kernel stdlib sasl inets crypto public_key ssl
 DEPS := deps
 BIN := $(BASE_DIR)/bin
-APP := ploutosd
+APP := ploutos
 SERVICE := $(subst _,-,$(APP))
 
 OVERLAY_VARS    ?=
