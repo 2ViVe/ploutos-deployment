@@ -28,7 +28,7 @@ clean: $(REBAR)
 rel: app rel/$(APP) 
 
 rel/$(APP):
-	@$(REBAR) generate $(OVERLAY_VARS)
+	@$(REBAR) -v generate $(OVERLAY_VARS)
 
 relclean:
 	@rm -rf rel/$(APP)
