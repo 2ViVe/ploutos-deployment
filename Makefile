@@ -21,6 +21,9 @@ app: $(REBAR) deps
 deps: $(REBAR) 
 	@$(REBAR) get-deps
 
+update-deps: 
+	$(REBAR) update-deps
+
 clean: $(REBAR)
 	@$(REBAR) clean
 
@@ -75,7 +78,7 @@ uninstall:
 		/etc/$(APP) \
 		/usr/bin/$(APP)
 
-upgrade: relclean rel 
+upgrade: update-deps relclean rel 
 	rm -rf $(PREFIX)/$(APP)/lib/*
 	cp -R rel/$(APP)/lib/* $(PREFIX)/$(APP)/lib/
 	rm -rf $(PREFIX)/$(APP)/releases/*
