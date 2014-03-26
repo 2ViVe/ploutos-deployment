@@ -59,7 +59,7 @@ LOG_DIR := /var/log/$(APP)
 VAR_DIR := /var/lib/$(APP)
 USER := ploutos
 
-install: relclean rel uninstall
+install: relclean rel 
 	cp -R rel/$(APP) $(PREFIX)/
 	ln -s $(PREFIX)/$(APP)/log $(LOG_DIR)
 	ln -s $(PREFIX)/$(APP)/etc $(VAR_DIR)
@@ -74,3 +74,11 @@ uninstall:
 		$(VAR_DIR) \
 		/etc/$(APP) \
 		/usr/bin/$(APP)
+
+upgrade: relclean rel 
+	rm -rf $(PREFIX)/$(APP)/lib/*
+	cp -R rel/$(APP)/lib/* $(PREFIX)/$(APP)/lib/
+	rm -rf $(PREFIX)/$(APP)/releases/*
+	cp -R rel/$(APP)/releases/* $(PREFIX)/$(APP)/releases/
+
+
