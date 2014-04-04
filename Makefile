@@ -51,7 +51,7 @@ xref: $(REBAR) clean app
 
 $(DEPS)/rebar:
 	@mkdir -p $(DEPS)
-	git clone https://github.com/rebar/rebar.git $(DEPS)/rebar
+	git clone -b 2.0.0 https://github.com/rebar/rebar.git $(DEPS)/rebar
 
 $(REBAR): $(DEPS)/rebar
 	$(MAKE) -C $(DEPS)/rebar
